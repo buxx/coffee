@@ -34,6 +34,7 @@ pub mod progress_bar;
 pub mod radio;
 pub mod slider;
 pub mod text;
+pub mod text_input;
 
 pub use self::image::Image;
 pub use button::Button;

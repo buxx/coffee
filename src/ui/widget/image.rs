@@ -1,16 +1,14 @@
 //! Displays image to your users.
 
-use crate::graphics::{
-    self, Rectangle, Point,
-};
-use crate::ui::core:: {
-    Style, Node, Element, MouseCursor, Layout, Hasher, Widget,
+use crate::graphics::{self, Point, Rectangle};
+use crate::ui::core::{
+    Element, Hasher, Layout, MouseCursor, Node, Style, Widget,
 };
 
 use std::hash::Hash;
 
 /// A widget that displays an image.
-/// 
+///
 /// It implements [`Widget`] when the associated [`core::Renderer`] implements
 /// the [`image::Renderer`] trait.
 ///
@@ -51,7 +49,7 @@ impl Image {
     }
 
     /// Sets the portion of the [`Image`] that we want to draw.
-    /// 
+    ///
     /// [`Image`]: struct.Image.html
     pub fn clip(mut self, source: Rectangle<u16>) -> Self {
         self.source = source;
@@ -77,7 +75,7 @@ impl Image {
 
 impl<Message, Renderer> Widget<Message, Renderer> for Image
 where
-    Renderer: self::Renderer 
+    Renderer: self::Renderer,
 {
     fn node(&self, _renderer: &Renderer) -> Node {
         Node::new(self.style)
@@ -89,11 +87,7 @@ where
         layout: Layout<'_>,
         _cursor_position: Point,
     ) -> MouseCursor {
-        renderer.draw(
-            layout.bounds(),
-            self.image.clone(),
-            self.source,
-        );
+        renderer.draw(layout.bounds(), self.image.clone(), self.source);
 
         MouseCursor::OutOfBounds
     }

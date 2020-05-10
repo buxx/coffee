@@ -1,5 +1,5 @@
-use crate::graphics::{Rectangle, Sprite, Point, Image, Batch};
-use crate::ui::{Renderer, image};
+use crate::graphics::{Batch, Image, Point, Rectangle, Sprite};
+use crate::ui::{image, Renderer};
 
 impl image::Renderer for Renderer {
     fn draw(
@@ -22,7 +22,7 @@ impl image::Renderer for Renderer {
             ((ratio_x, ratio_x), Point::new(position_x, position_y))
         };
 
-        let mut batch = Batch::new(image); 
+        let mut batch = Batch::new(image);
         batch.add(Sprite {
             source,
             position,
@@ -32,4 +32,3 @@ impl image::Renderer for Renderer {
         self.images.push(batch);
     }
 }
-

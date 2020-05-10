@@ -6,6 +6,7 @@ mod progress_bar;
 mod radio;
 mod slider;
 mod text;
+mod text_input;
 
 use crate::graphics::{Batch, Color, Font, Frame, Image, Mesh, Shape};
 use crate::load::{Join, Task};

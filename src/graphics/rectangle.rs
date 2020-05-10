@@ -33,9 +33,6 @@ impl Rectangle<f32> {
     /// [`Point`]: type.Point.html
     /// [`Rectangle`]: struct.Rectangle.html
     pub fn center(&self) -> Point {
-        Point::new(
-            self.x + self.width / 2.0, 
-            self.y + self.height / 2.0,
-        )
+        Point::new(self.x + self.width / 2.0, self.y + self.height / 2.0)
     }
 }

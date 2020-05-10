@@ -1,16 +1,14 @@
 //! Displays action progress to your users.
 
-use crate::graphics::{
-    Point, Rectangle,
-};
+use crate::graphics::{Point, Rectangle};
 use crate::ui::core::{
-    Style, Node, Element, MouseCursor, Layout, Hasher, Widget,
+    Element, Hasher, Layout, MouseCursor, Node, Style, Widget,
 };
 
 use std::hash::Hash;
 
 /// A widget that displays a progress of an action.
-/// 
+///
 /// It implements [`Widget`] when the associated [`core::Renderer`] implements
 /// the [`button::Renderer`] trait.
 ///
@@ -62,7 +60,7 @@ impl ProgressBar {
 
 impl<Message, Renderer> Widget<Message, Renderer> for ProgressBar
 where
-    Renderer: self::Renderer 
+    Renderer: self::Renderer,
 {
     fn node(&self, _renderer: &Renderer) -> Node {
         Node::new(self.style.height(50))
@@ -74,10 +72,7 @@ where
         layout: Layout<'_>,
         _cursor_position: Point,
     ) -> MouseCursor {
-        renderer.draw(
-            layout.bounds(),
-            self.progress,
-        );
+        renderer.draw(layout.bounds(), self.progress);
 
         MouseCursor::OutOfBounds
     }
@@ -102,11 +97,7 @@ pub trait Renderer {
     ///   * the progress of the [`ProgressBar`]
     ///   
     /// [`ProgressBar`]: struct.ProgressBar.html
-    fn draw(
-        &mut self,
-        bounds: Rectangle<f32>,
-        progress: f32,
-    );
+    fn draw(&mut self, bounds: Rectangle<f32>, progress: f32);
 }
 
 impl<'a, Message, Renderer> From<ProgressBar> for Element<'a, Message, Renderer>
