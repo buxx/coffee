@@ -2,11 +2,11 @@
 use crate::graphics::{
     Color, HorizontalAlignment, Point, Rectangle, VerticalAlignment,
 };
-use crate::input::{mouse, keyboard, ButtonState};
+use crate::input::{mouse, ButtonState};
 use crate::ui::core::{
     Align, Element, Event, Hasher, Layout, MouseCursor, Node, Widget,
 };
-use crate::ui::widget::{text, Column, Row, Text};
+use crate::ui::widget::{text, Row, Text};
 
 use std::hash::Hash;
 
