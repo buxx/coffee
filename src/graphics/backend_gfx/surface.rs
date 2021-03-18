@@ -97,7 +97,7 @@ fn init_raw(
             .with_depth_buffer(depth_total_bits - stencil_bits)
             .with_stencil_buffer(stencil_bits)
             .with_pixel_format(color_total_bits - alpha_bits, alpha_bits)
-            .with_srgb(color_format.1 == gfx::format::ChannelType::Srgb)
+            .with_srgb(true)
             .build_windowed(window, events_loop)?
     };
 
